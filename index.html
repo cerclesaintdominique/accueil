@@ -173,6 +173,7 @@
 
 
   <!-- VOTRE AVIS -->
+  <section id="feedback-section" class="feedback-section">
   <section class="feedback-section" id="avis">
     <div class="feedback-inner">
       <div class="feedback-card">
@@ -298,6 +299,19 @@
       observer.observe(c);
     });
   </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    const feedback = document.getElementById("feedback-section");
+
+    // Date d'affichage : dimanche 2 août 2026 à 22h00
+    const dateAffichage = new Date("2026-08-02T22:00:00");
+
+    if (new Date() < dateAffichage) {
+        feedback.style.display = "none";
+    }
+
+});
+</script>
 </body>
 </html>
