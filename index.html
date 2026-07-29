@@ -56,6 +56,20 @@
     .badge-sport { background: #d4ead8; color: #1a6b30; }
     .badge-coupe { background: #ffd6d6; color: #c01515; }
     .badge-fete  { background: #fff0c0; color: #a07000; }
+    .card-hero { grid-column: 1 / -1; border-left: none; border-radius: 16px; box-shadow: 0 10px 40px rgba(184,134,11,0.35), 0 4px 14px rgba(30,45,74,0.25); }
+    .card-hero .card-header { background: linear-gradient(120deg, #1e2d4a, #b8860b, #c9a84c, #1e2d4a); background-size: 300% 300%; animation: gradientShift 6s ease infinite; padding: 22px 24px; position: relative; overflow: hidden; }
+    .card-hero .card-header::before { content: '✨ 🎊 ✨ 🎊 ✨'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-between; font-size: 1.1rem; opacity: 0.25; padding: 0 12px; pointer-events: none; }
+    .card-hero .card-emoji { font-size: 2.4rem; animation: pulseEmoji 1.6s ease-in-out infinite; }
+    .card-hero .card-date { font-size: 0.95rem; background: var(--white); color: #a07000; padding: 4px 14px; border-radius: 20px; font-weight: 700; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+    .card-hero .card-body { padding: 26px 24px 28px; text-align: center; }
+    .card-hero .card-title { font-size: 1.9rem; margin-bottom: 10px; background: linear-gradient(90deg, var(--navy), #b8860b); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .card-hero .card-desc { font-size: 1rem; max-width: 480px; margin: 0 auto; }
+    .card-hero .card-badge { font-size: 0.85rem; padding: 6px 18px; margin-top: 14px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); color: var(--navy); box-shadow: 0 2px 10px rgba(201,168,76,0.5); animation: glowBadge 1.8s ease-in-out infinite; }
+    .card-hero .card-logo { display: none; }
+    .card-hero > .card-body > p:last-of-type { font-size: 0.85rem !important; }
+    @keyframes gradientShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    @keyframes pulseEmoji { 0%,100% { transform: scale(1); } 50% { transform: scale(1.25); } }
+    @keyframes glowBadge { 0%,100% { box-shadow: 0 2px 10px rgba(201,168,76,0.5); } 50% { box-shadow: 0 2px 20px rgba(201,168,76,0.9); } }
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 999; align-items: center; justify-content: center; padding: 20px; }
     .modal-overlay.active { display: flex; }
     .modal-img { max-width: 90vw; max-height: 90vh; border-radius: 12px; box-shadow: 0 8px 40px rgba(0,0,0,0.6); }
@@ -114,31 +128,17 @@
     <h2 class="section-title"><span class="section-icon">📅</span> Prochains Événements</h2>
     <div class="events-grid">
 
-      <!-- CONCOURS DE BOULE 18 JUILLET -->
-      <div class="card" style="animation-delay:.05s;">
-        <div class="card-header">
-          <span class="card-emoji">🎳</span>
-          <span class="card-date">Samedi 18 juillet – 17h</span>
-        </div>
-        <div class="card-body">
-          <div class="card-title">Concours de Boule</div>
-          <p class="card-desc">Concours de boule au Cercle Saint-Dominique. Venez nombreux pour partager un moment convivial !</p>
-          <span class="card-badge badge-sport">Pétanque</span>
-          <img src="https://t4.ftcdn.net/jpg/00/81/77/19/360_F_81771978_198BV5KewPiCf3egxgdoH70lIn9DPHhG.jpg" class="card-logo" alt="Boule" />
-        </div>
-      </div>
-
       <!-- FÊTE DE LA SAINT-DOMINIQUE -->
-      <div class="card card-clickable" style="animation-delay:.10s; border-left-color: var(--gold);" onclick="document.getElementById('modal-saint-dom').classList.add('active')">
-        <div class="card-header" style="background: linear-gradient(135deg, #1e2d4a, #b8860b);">
+      <div class="card card-clickable card-hero" style="animation-delay:.05s;" onclick="document.getElementById('modal-saint-dom').classList.add('active')">
+        <div class="card-header">
           <span class="card-emoji">🎉</span>
-          <span class="card-date">1, 2 & 3 août</span>
+          <span class="card-date">Ce week-end · 1, 2 & 3 août</span>
         </div>
         <div class="card-body">
-          <div class="card-title">Fête de la Saint-Dominique !</div>
-          <p class="card-desc">La grande fête annuelle de l'association sur 3 jours ! Bal, jeux, pétanque, repas… </p>
-          <span class="card-badge badge-fete">Grande Fête</span>
-          <p style="font-size:0.78rem; color:#a07000; margin-top:8px; font-weight:600;">👆 Cliquez pour voir le programme</p>
+          <div class="card-title">🎊 LA FÊTE DE L'ANNÉE 🎊</div>
+          <p class="card-desc">La grande fête annuelle de la Saint-Dominique revient sur 3 jours ! Bal, jeux, pétanque, repas… l'événement à ne rater sous aucun prétexte !</p>
+          <span class="card-badge badge-fete">🔥 Grande Fête</span>
+          <p style="font-size:0.85rem; color:#a07000; margin-top:10px; font-weight:600;">👆 Cliquez pour voir le programme</p>
           <img src="data:image/jpeg;base64,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" class="card-logo" alt="La Treille" />
         </div>
       </div>
