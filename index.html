@@ -125,6 +125,12 @@
     <img class="modal-img" src="affiche-saint-dominique.jpg" alt="Affiche Fête de la Saint-Dominique 2026" />
   </div>
 
+    <!-- MODAL AFFICHE NOËL -->
+  <div class="modal-overlay" id="modal-noel" onclick="this.classList.remove('active')">
+    <button class="modal-close" onclick="document.getElementById('modal-noel').classList.remove('active')">&times;</button>
+    <img class="modal-img" src="affiche-noel.jpg" alt="Affiche Grand Repas de Noël 2026" />
+  </div>
+  
   <header>
     <div class="header-inner">
       <div class="logo-wrap">
@@ -254,8 +260,8 @@
         </div>
       </div>
 
-      <!-- SAMEDI 19 DÉCEMBRE : GRAND REPAS DE NOËL -->
-      <div class="card card-hero" style="animation-delay:.29s;">
+            <!-- SAMEDI 19 DÉCEMBRE : GRAND REPAS DE NOËL -->
+      <div class="card card-hero card-clickable" style="animation-delay:.29s;" onclick="document.getElementById('modal-noel').classList.add('active')">
         <div class="card-header">
           <span class="card-emoji">🎄</span>
           <span class="card-date">Samedi 19 décembre · 12h00</span>
@@ -264,6 +270,7 @@
           <div class="card-title">Grand Repas de Noël</div>
           <p class="card-desc">Le rendez-vous incontournable pour clôturer l'année en beauté, tous ensemble autour d'un grand repas de fête.</p>
           <span class="card-badge badge-fete">🎁 Grande Fête</span>
+          <p style="font-size:0.85rem; color:#a07000; margin-top:10px; font-weight:600;">👆 Cliquez pour voir l'affiche</p>
         </div>
       </div>
 
